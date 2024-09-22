@@ -1,0 +1,4 @@
+chainlit==1.1.404
+langchain==0.2.16
+langchain_community==0.3.0
+ollama==0.3.2
