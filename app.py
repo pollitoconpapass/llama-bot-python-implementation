@@ -5,7 +5,7 @@ from langchain.schema import StrOutputParser
 from langchain.schema.runnable.config import RunnableConfig
 
 
-model = Ollama(model="llama3.1",)
+model = Ollama(model="llama3.2:1b",)
 
 @cl.on_chat_start
 async def on_chat_start():
