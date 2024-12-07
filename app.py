@@ -15,13 +15,14 @@ async def on_chat_start():
     msg.content = "Hello, how can I help you?"
     await msg.update()
 
-    cl.user_session.set("message_history", [{"role": "{system}", "content": "You are a helpful AI assistant."}])
+    cl.user_session.set("message_history", [])
 
 
 @cl.on_message
 async def on_message(message: cl.Message):
     message_history = cl.user_session.get("message_history")
     message_history.append({"role": "user", "content": message.content})
+    message_history = message_history[-10:] # -> to limit the history
 
     prompt = ChatPromptTemplate.from_messages(
         [
